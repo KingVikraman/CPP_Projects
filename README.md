@@ -71,6 +71,7 @@ Each project marks a new milestone in my grasp of the language and its paradigms
 
 ---
 
+---
 ## 🚀 CPP Module 01
 
 This module dives deeper into memory handling, object-oriented design, and dynamic behavior in C++.  
