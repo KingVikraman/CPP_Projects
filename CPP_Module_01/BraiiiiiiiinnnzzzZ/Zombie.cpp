@@ -1,12 +1,6 @@
 #include "Zombie.hpp"
 
 
-Zombie::Zombie()
-{
-    this->name = "Unnamed Zombie";
-    std::cout << "Zombie created with no name." <<std::endl;
-}
-
 Zombie::Zombie(std::string name)
 {
     this->name = name;
@@ -14,7 +8,7 @@ Zombie::Zombie(std::string name)
 }
 Zombie::~Zombie()
 {
-    std::cout << "Zombie " << this->name << "has been destroyed 💀" << std::endl;
+    std::cout << "Zombie " << this->name << "has been destroyed " << std::endl;
 }
 
 void Zombie::announce() const

@@ -11,6 +11,7 @@ int main()
     heapZombie->announce();
 
     std::cout << "\n Deleting heap zombie...\n" << std::endl;
+    delete heapZombie;
 
     std::cout << "\n Creating a stack zombie using randonChump()...\n" << std::endl;
     randomChump("Stacky ");
