@@ -6,9 +6,9 @@ Each project marks a new milestone in my grasp of the language and its paradigms
 
 ---
 
-## 📦 CPP Module 00
+##  CPP Module 00
 
-### 1. 🗣️ Megaphone
+### 1.  Megaphone
 
 • Learned how to include the C++ Standard Input/Output stream using `#include <iostream>`.  
   _(No more `printf` — hello `std::cout`!)_
@@ -17,20 +17,20 @@ Each project marks a new milestone in my grasp of the language and its paradigms
   • `<<` → for printing to the console  
   • `std::endl` → for newline and flushing the output buffer  
   • `std::toupper()` → for transforming characters to uppercase  
-  • `for` loops → used as nested loops (bye bye `while` 👋)
+  • `for` loops → used as nested loops (bye bye `while` )
 
 • Compiling with the flag `-std=c++98` to stick to old-school C++ rules.
 
 ---
 
-### 2. ☎️ Phonebook
+### 2.  Phonebook
 
 • Learned about **Classes and Objects**:  
   • What classes are and how to create objects that store individual data.
 
 • Mastered **Access Specifiers**:  
   • `private` and `public` — used to control visibility and protect data.  
-  • Introduced to the concept of **Encapsulation** (locking variables in a vault 🔐).
+  • Introduced to the concept of **Encapsulation** (locking variables in a vault ).
 
 • Understood file structure:  
   • Splitting declarations (`.hpp`) and definitions (`.cpp`) — industry practice!
@@ -48,7 +48,7 @@ Each project marks a new milestone in my grasp of the language and its paradigms
 
 ---
 
-### 3. 💼 Dream Job
+### 3.  Dream Job
 
 • Learned to use **static class members** to share data across all instances.
 
@@ -72,14 +72,14 @@ Each project marks a new milestone in my grasp of the language and its paradigms
 ---
 
 ---
-## 🚀 CPP Module 01
+##  CPP Module 01
 
 This module dives deeper into memory handling, object-oriented design, and dynamic behavior in C++.  
 It focuses on **pointers**, **references**, **memory allocation**, and **file handling**, while reinforcing core OOP principles.
 
 ---
 
-### 1. 🧟 BraiiiiiiinnnzzzZ (`ex00`)
+### 1.  BraiiiiiiinnnzzzZ (`ex00`)
 
 - Built a `Zombie` class with an `announce()` method.  
   _Practiced **class creation**, **member functions**, and **destructors**._
@@ -92,7 +92,7 @@ It focuses on **pointers**, **references**, **memory allocation**, and **file ha
 
 ---
 
-### 2. 🧟‍♂️ Moar brainz! (`ex01`)
+### 2.  Moar brainz! (`ex01`)
 
 - Created a **zombie horde** using dynamic memory allocation.  
   _Function: `Zombie* zombieHorde(int N, std::string name);`_
@@ -105,7 +105,7 @@ It focuses on **pointers**, **references**, **memory allocation**, and **file ha
 
 ---
 
-### 3. 🧠 HI THIS IS BRAIN (`ex02`)
+### 3.  HI THIS IS BRAIN (`ex02`)
 
 - Explored **pointers vs references** using a simple string variable.
   - Printed out memory addresses and values using both methods.
@@ -118,7 +118,7 @@ It focuses on **pointers**, **references**, **memory allocation**, and **file ha
 
 ---
 
-### 4. ⚔️ Unnecessary violence (`ex03`)
+### 4.  Unnecessary violence (`ex03`)
 
 - Built a `Weapon` class with `getType()` and `setType()`.
 
@@ -132,7 +132,7 @@ It focuses on **pointers**, **references**, **memory allocation**, and **file ha
 
 ---
 
-### 5. 📝 Sed is for losers (`ex04`)
+### 5.  Sed is for losers (`ex04`)
 
 - Built a basic **search-and-replace** utility for text files.
   - Reads input from file, replaces all occurrences of `s1` with `s2`, and writes to `<filename>.replace`
@@ -145,7 +145,7 @@ It focuses on **pointers**, **references**, **memory allocation**, and **file ha
 
 ---
 
-### 6. 🤬 Harl 2.0 (`ex05`)
+### 6.  Harl 2.0 (`ex05`)
 
 - Created a `Harl` class that prints out predefined messages based on **log level**:
   - `"DEBUG"`, `"INFO"`, `"WARNING"`, `"ERROR"`
