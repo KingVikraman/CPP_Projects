@@ -6,15 +6,15 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:05 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/26 13:28:08 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/09/27 20:18:41 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
 WrongCat::WrongCat()
 {
-	type = "WrongCat";
+	type = "WrongCat!";
 	std::cout
 	<< "WrongCat : Default constructor is called! \n"
 	<< std::endl;

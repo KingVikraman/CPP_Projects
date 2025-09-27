@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:32 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 12:36:46 by raja             ###   ########.fr       */
+/*   Updated: 2025/09/27 20:12:19 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "../includes/Cat.hpp"
 
 
 Cat::Cat()
@@ -48,6 +48,6 @@ Cat::~Cat()
 void Cat::makeSounds() const
 {
 	std::cout
-	<< "Cat: Meow! Meow! Meow! \n"
+	<< "Cat: Meow! Meow! Meow! "
 	<< std::endl;
 }

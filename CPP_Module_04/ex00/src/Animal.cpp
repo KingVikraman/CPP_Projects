@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:34 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 12:36:55 by raja             ###   ########.fr       */
+/*   Updated: 2025/09/27 20:13:10 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../includes/Animal.hpp"
 
 
 Animal::Animal()
@@ -48,7 +48,7 @@ Animal::~Animal()
 void Animal::makeSounds() const
 {
 	std::cout
-	<< "Animal: Some type of animal sound? \n"
+	<< "Animal: Some type of animal sound? "
 	<< std::endl;
 }
 

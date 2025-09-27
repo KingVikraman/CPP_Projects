@@ -6,7 +6,7 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/26 13:25:32 by rvikrama          #+#    #+#              #
-#    Updated: 2025/09/26 13:25:50 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/09/27 19:52:29 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,15 +21,13 @@ CFLAG = -Wall -Werror -Wextra -std=c++98 -g -O0 -fsanitize=address
 
 INC_DIR = includes
 INC = -I$(INC_DIR)
-SRC_DIR = src
 
-SRC =	$(addprefix $(SRC_DIR)/, \
-		main.cpp \
-		Animal.cpp \
-		Dog.cpp \
-		Cat.cpp \
-		WrongAnimal.cpp \
-		WrongCat.cpp )
+SRC =	src/main.cpp \
+		src/Animal.cpp \
+		src/Dog.cpp \
+		src/Cat.cpp \
+		src/WrongAnimal.cpp \
+		src/WrongCat.cpp 
 
 OBJ_FOLDER = obj_files
 

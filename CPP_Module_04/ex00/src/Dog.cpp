@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:28 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 12:36:43 by raja             ###   ########.fr       */
+/*   Updated: 2025/09/27 20:12:30 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "../includes/Dog.hpp"
 
 
 Dog::Dog()
@@ -50,6 +50,6 @@ Dog::~Dog()
 void Dog::makeSounds() const
 {
 	std::cout
-	<< "Dog : Woof! Woof! Woof! \n"
+	<< "Dog : Woof! Woof! Woof! "
 	<< std::endl;
 }
