@@ -1,55 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/26 13:28:28 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 21:15:40 by rvikrama         ###   ########.fr       */
+/*   Created: 2025/09/27 21:20:39 by rvikrama          #+#    #+#             */
+/*   Updated: 2025/09/27 21:29:18 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Dog.hpp"
+#include "../includes/Brain.hpp"
+#include <iostream>
 
-
-Dog::Dog() : brain(new Brain())
+Brain::Brain()
 {
-	type = "Dog";
 	std::cout
-	<< "Dog: Default constructor is called! \n"
+	<< "Brain: Default constructor called! "
 	<< std::endl;
 }
 
-
-Dog::Dog(const Dog& other) : Animal(other), brain(new Brain(*other.brain))
+Brain::Brain(const Brain& other)
 {
 	std::cout
-	<< "Dog: Copy constructor called! \n"
+	<< "Brain: Copy constructor is called! "
 	<< std::endl;
+	for (int i = 0; i < 100; i++)
+		ideas[i] = other.ideas[i];
 }
 
-Dog &Dog::operator=(const Dog& other)
+Brain& Brain::operator=(const Brain& other)
 {
 	std::cout
-	<< "Dog: Copy assignment operator called! \n"
+	<< "Brain: Copy assignment operator is called! "
 	<< std::endl;
-
 	if (this != &other)
-		Animal::operator=(other);
+	{
+		for (int i = 0; i < 10; i++) 
+			ideas[i] = other.ideas[i];
+	}
 	return *this;
 }
 
-Dog::~Dog()
+Brain::~Brain()
 {
 	std::cout
-	<< "Dog: Destructor is called! \n"
-	<<std::endl;
-}
-
-void Dog::makeSounds() const
-{
-	std::cout
-	<< "Dog : Woof! Woof! Woof! \n"
+	<< "Brain: Destructor is called! "
 	<< std::endl;
 }
+
+void 
