@@ -3,35 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:34 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 12:36:55 by raja             ###   ########.fr       */
+/*   Updated: 2025/09/26 13:29:30 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 
-Animal::Animal()
+Animal::Animal() : type("Animal")
 {
-	type = "Animal! ";
 	std::cout
-	<< "Animal -> default constructor called! "
+	<< "Animal -> default constructor called! \n"
 	<< std::endl;
 }
 
 Animal::Animal(const Animal& other) : type(other.type)
 {
 	std::cout
-	<< "Animal -> copy constructor called! "
+	<< "Animal -> copy constructor called! \n"
 	<< std::endl;
 }
 
 Animal& Animal::operator=(const Animal& other)
 {
 	std::cout
-	<< "Animal: Copy assignment operator is called! "
+	<< "Animal -> copy assignment operator is called! \n"
 	<< std::endl;
 	if (this != &other)
 		type = other.type;
@@ -41,7 +40,7 @@ Animal& Animal::operator=(const Animal& other)
 Animal::~Animal()
 {
 	std::cout
-	<< "Animal: Destructor is called! "
+	<< "Animal destructor is called! \n"
 	<< std::endl;
 }
 
