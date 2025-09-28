@@ -3,62 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:27:45 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/26 13:27:56 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/09/28 16:30:09 by raja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <iostream>
-
-
 
 #include "../includes/Animal.hpp"
 #include "../includes/Dog.hpp"
 #include "../includes/Cat.hpp"
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
 
 int main() {
-    std::cout << "=== Correct polymorphism test ===\n";
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
+	std::cout << "=== Array test ===\n";
+	const Animal* animals[4];
+	for (int i = 0; i < 4; i++) {
+		if (i % 2 == 0) animals[i] = new Dog();
+		else animals[i] = new Cat();
+	}
+	for (int i = 0; i < 4; i++) animals[i]->makeSounds();
+	for (int i = 0; i < 4; i++) delete animals[i];
 
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
+	std::cout << "\n=== Deep copy test ===\n";
+	Dog d1;
+	d1.setBrainIdea(0, "Chase cats");
+	Dog d2 = d1; // deep copy
 
-    i->makeSounds(); // Cat::makeSound
-    j->makeSounds(); // Dog::makeSound
-    meta->makeSounds(); // Animal::makeSound
+	d1.setBrainIdea(0, "Eat steak");
 
-    delete meta;
-    delete j;
-    delete i;
+	d1.showBrainIdea(0); // Eat steak
+	d2.showBrainIdea(0); // Chase cats
 
-    std::cout << "\n=== Wrong polymorphism test ===\n";
-    const WrongAnimal* wmeta = new WrongAnimal();
-    const WrongAnimal* wc = new WrongCat();
-
-    wc->makeSound();   // calls WrongAnimal::makeSound because it's not virtual
-    wmeta->makeSound();
-
-    delete wmeta;
-    delete wc;
-
-    std::cout << "\n=== Array test ===\n";
-    const Animal* animals[4];
-    for (int k = 0; k < 4; ++k) {
-        if (k % 2 == 0) animals[k] = new Dog();
-        else animals[k] = new Cat();
-    }
-    for (int k = 0; k < 4; ++k) {
-        animals[k]->makeSounds();
-    }
-    for (int k = 0; k < 4; ++k) {
-        delete animals[k];
-    }
-
-    return 0;
+	return 0;
 }
+

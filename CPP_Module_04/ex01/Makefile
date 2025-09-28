@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
+#    By: raja <raja@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/27 11:46:11 by raja              #+#    #+#              #
-#    Updated: 2025/09/27 19:55:21 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/09/28 16:33:48 by raja             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = ex01
 
 CC = c++
 
-CFLAG = -Wall -Werror -Wextra -std=c++98 -g -00 -fsanitize=address
+CFLAG = -Wall -Werror -Wextra -std=c++98 -g -O0 -fsanitize=address
 # -g3 -O3 -O0 -fsanitize=address -fsanitize-recover=leak
 # valgrind --leak-check=full --show-leak-kinds=all
 # -g = gives error messages for debugging, needed by gdb / valgrind / helgrind
@@ -27,7 +27,7 @@ SRC =	src/main.cpp \
 		src/Dog.cpp \
 		src/Cat.cpp \
 		src/WrongAnimal.cpp \
-		src/WrongCat.cpp 
+		src/WrongCat.cpp \
 		src/Brain.cpp
 
 OBJ_FOLDER = obj_files
@@ -38,7 +38,7 @@ OBJ_SRC = $(patsubst %.cpp, $(OBJ_FOLDER)/%.o, $(SRC))
 # color
 GREEN = \033[0;32m
 CYAN = \033[0;36m
-RESET = \033[0m  	#white
+RESET = \033[0m
 
 all: $(NAME)
 

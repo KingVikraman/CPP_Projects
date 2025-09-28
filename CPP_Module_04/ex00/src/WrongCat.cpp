@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
+/*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/26 13:28:05 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/09/27 20:18:41 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/09/28 13:17:08 by raja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ WrongCat::WrongCat()
 {
 	type = "WrongCat!";
 	std::cout
-	<< "WrongCat : Default constructor is called! \n"
+	<< "WrongCat : Default constructor is called! "
 	<< std::endl;
 }
 
 WrongCat::~WrongCat()
 {
 	std::cout
-	<< "WrongCat: Destructor is called! \n"
+	<< "WrongCat: Destructor is called! "
 	<< std::endl;
 }
 
