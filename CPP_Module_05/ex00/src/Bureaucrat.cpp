@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:12 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/26 20:57:52 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/10/26 21:52:32 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,9 @@ void Bureaucrat::decrementGrade()
 	_grade++;
 }
 
-
+/* ❰ Operator Overload ❱ */
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
+{
+	out << b.getName() << ", Bureaucrat grade " << b.getGrade() << ".";
+	return out;
+}

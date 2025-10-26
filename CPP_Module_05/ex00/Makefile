@@ -6,22 +6,22 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 16:38:35 by rvikrama          #+#    #+#              #
-#    Updated: 2025/10/26 15:05:21 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/10/26 21:58:08 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = ex00
 
-CC = C++
+CXX = c++
 
-CFLAG = -Wall -Werror -Wextra -std=c++98 - g -O0 -fsanitize=address
+CXXFLAG = -Wall -Werror -Wextra -std=c++98 - g -O0 -fsanitize=address
 
 
 INC_DIR = includes
 INC = -I$(INC_DIR)
 
 SRC =	src/Bureaucrat.cpp \
-		src.main.cpp
+		src/main.cpp
 
 OBJ_FOLDER = obj_files
 

@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:57 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/26 20:28:17 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/10/26 21:54:58 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ class Bureaucrat
 			public:
 				const char* what() const throw();
 		};
-
 };
+
+std::ostream &operator<<(std::ostream &out, const Bureaucrat &b);
+
 
 #endif
