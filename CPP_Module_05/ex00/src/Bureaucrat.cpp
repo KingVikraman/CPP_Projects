@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:12 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/28 14:40:24 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:16:03 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,14 +78,14 @@ void Bureaucrat::incrementGrade()
 {
 	if (_grade <= 1)
 		throw GradeTooHighExeption();
-	_grade = _grade - 2;
+	_grade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
 	if (_grade >= 150)
 		throw GradeTooLowExeption();
-	_grade = _grade + 2 ;
+	_grade++;
 }
 
 /* ❰ Operator Overload ❱ */
@@ -98,10 +98,11 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 
 const char* Bureaucrat::GradeTooHighExeption::what() const throw()
 {
-	return "Grade too High! ";
+	return "Grade  Is too High!";
 }
 
 const char* Bureaucrat::GradeTooLowExeption::what() const throw()
 {
 	return "Grade too Low! ";
 }
+

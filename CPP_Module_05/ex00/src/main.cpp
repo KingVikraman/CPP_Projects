@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:43 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/31 18:12:07 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/02 20:40:57 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 
 	try 
 	{
-		Bureaucrat raja("Raja", 151);
+		Bureaucrat raja("Raja", 42);
 		std::cout << raja << std::endl;
 
 		std::cout << "Increment Raja's Grade. " << std::endl;
@@ -33,8 +33,8 @@ int main()
 		raja.decrementGrade();
 		std::cout << raja << std::endl;
 	}
-	catch (std::exception &e)
+	catch (std::exception &Error)
 	{
-		std::cerr << "Exeption: " << e.what() << std::endl;
+		std::cerr << "Exeption: " << Error.what() << std::endl;
 	}
 }

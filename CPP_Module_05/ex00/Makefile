@@ -6,7 +6,7 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 16:38:35 by rvikrama          #+#    #+#              #
-#    Updated: 2025/10/27 15:44:14 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/11/02 20:40:25 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,14 +36,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ_SRC)
 	$(CXX) $(CXXFLAGS) $(OBJ_SRC) -o $(NAME)
-		@echo "${CYAN}============================================================\n${RESET}"
-		@echo "${CYAN}    _/_/_/      _/_/          _/    _/_/      _/      _/   ${RESET}"
-		@echo "${CYAN}   _/    _/  _/    _/        _/  _/    _/    _/      _/    ${RESET}"
-		@echo "${CYAN}  _/_/_/    _/_/_/_/        _/  _/_/_/_/    _/      _/     ${RESET}"
-		@echo "${CYAN} _/    _/  _/    _/  _/    _/  _/    _/      _/  _/        ${RESET}"
-		@echo "${CYAN}_/    _/  _/    _/    _/_/    _/    _/  _/    _/           ${RESET}"
-		@echo "${CYAN}============================================================\n${RESET}"
-		@echo "${GREEN}-------------------COMPILED CODE-------------------${RESET}"
+	@clear
+	@echo "${CYAN}============================================================\n${RESET}"
+	@echo "${CYAN}    _/_/_/      _/_/          _/    _/_/      _/      _/   ${RESET}"
+	@echo "${CYAN}   _/    _/  _/    _/        _/  _/    _/    _/      _/    ${RESET}"
+	@echo "${CYAN}  _/_/_/    _/_/_/_/        _/  _/_/_/_/    _/      _/     ${RESET}"
+	@echo "${CYAN} _/    _/  _/    _/  _/    _/  _/    _/      _/  _/        ${RESET}"
+	@echo "${CYAN}_/    _/  _/    _/    _/_/    _/    _/  _/    _/           ${RESET}"
+	@echo "${CYAN}============================================================\n${RESET}"
+	@echo "${GREEN}-------------------COMPILED CODE-------------------${RESET}"
+	@echo
+	@echo "          \033[5;1;33m==============================\033[0m"
+	@echo "             RUNNIG ・ 2025 ・ BY RAJA "
+	@echo "          \033[5;1;33m==============================	\033[0m"
+	@echo
 
 $(OBJ_FOLDER)/%.o: %.cpp
 	@mkdir -p $(dir $@)
@@ -51,11 +57,21 @@ $(OBJ_FOLDER)/%.o: %.cpp
 
 clean:
 	rm -rf $(OBJ_FOLDER)
-	@echo "${GREEN}-----------------CLEANED-----------------\n${RESET}"
-
 fclean: clean
-	rm -f $(NAME)
-	@echo "${GREEN}------------------FULLY CLEANED--------------\n${RESET}"
+	@echo
+	@echo "\033[3;33m╔════════════════════════════════════════════╗\033[0m"
+	@echo "\033[3;33m║  ⚠️ SYSTEM PURGE INITIATED — FCLEAN MODE ⚠️  ║\033[0m"
+	@echo "\033[3;33m╚════════════════════════════════════════════╝\033[0m"
+	@echo
+	@sleep 0.2
+	@echo "\033[5;1;31m           WARNING!!   \033[0m"
+	@echo
+	@echo "\033[3;31m    THIS ACTION IS IRREVERSABLE... \033[0m"
+	@sleep 5.0
+	@echo "\033[1;36m╔════════════════════════════════════════════╗\033[0m"
+	@echo "\033[1;36m║          CLEANUP SEQUENCE COMPLETE         ║\033[0m"
+	@echo "\033[1;36m╚════════════════════════════════════════════╝\033[0m"
+	rm -f $(NAME)	
 
 re : fclean all
 
