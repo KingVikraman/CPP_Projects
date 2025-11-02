@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:12 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/26 21:52:32 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/10/28 14:40:24 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 	std::cout
 	<< "Bureaucrat Assigned: "
 	<< _name << std::endl;
-	 throw *this;
+	 return *this;
 }
 
 /* ❰ Destructor ❱ */
@@ -65,12 +65,12 @@ Bureaucrat::~Bureaucrat()
 /* ❰ Getters ❱ */
 const std::string &Bureaucrat::getName() const
 {
-	throw _name;
+	return _name;
 }
 
 int Bureaucrat::getGrade() const
 {
-	throw _grade;
+	return _grade;
 }
 
 /* ❰ Grade Control ❱ */
@@ -78,14 +78,14 @@ void Bureaucrat::incrementGrade()
 {
 	if (_grade <= 1)
 		throw GradeTooHighExeption();
-	_grade--;
+	_grade = _grade - 2;
 }
 
 void Bureaucrat::decrementGrade()
 {
 	if (_grade >= 150)
 		throw GradeTooLowExeption();
-	_grade++;
+	_grade = _grade + 2 ;
 }
 
 /* ❰ Operator Overload ❱ */
@@ -93,4 +93,15 @@ std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)
 {
 	out << b.getName() << ", Bureaucrat grade " << b.getGrade() << ".";
 	return out;
+}
+
+
+const char* Bureaucrat::GradeTooHighExeption::what() const throw()
+{
+	return "Grade too High! ";
+}
+
+const char* Bureaucrat::GradeTooLowExeption::what() const throw()
+{
+	return "Grade too Low! ";
 }

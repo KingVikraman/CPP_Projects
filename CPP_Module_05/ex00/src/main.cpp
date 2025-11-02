@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:43 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/26 21:47:15 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:12:07 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,21 @@ int main()
 	<< "=== Bureaucrat System Test ==="
 	<< std::endl;
 
-	try
+	try 
 	{
-		Bureaucrat raja("Raja", 42);
+		Bureaucrat raja("Raja", 151);
+		std::cout << raja << std::endl;
+
+		std::cout << "Increment Raja's Grade. " << std::endl;
+		raja.incrementGrade();
+		std::cout << raja << std::endl;
+
+		std::cout << "Decrement Raja's Grade. " << std::endl;
+		raja.decrementGrade();
 		std::cout << raja << std::endl;
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exxeption: " << e.what() << std::endl;
+		std::cerr << "Exeption: " << e.what() << std::endl;
 	}
 }

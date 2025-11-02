@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:57 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/10/26 21:54:58 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/10/31 20:33:43 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,13 @@ class Bureaucrat
 		class GradeTooHighExeption : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				const char * what() const throw();
 		};
 
 		class GradeTooLowExeption : public std::exception
 		{
 			public:
-				const char* what() const throw();
+				const char * what() const throw();
 		};
 };
 
