@@ -6,7 +6,7 @@
 
 class Printer {
 private:
-	std::string _name;
+	const std::string _name;
 	int _availablePaper;
 public:
 	// Printer(std::string name, int paper)

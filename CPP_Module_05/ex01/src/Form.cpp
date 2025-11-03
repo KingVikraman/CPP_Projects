@@ -6,16 +6,23 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:02:02 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/02 22:02:29 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:04:54 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Form.hpp"
 #include "../includes/Bureaucrat.hpp"
 
+Form::Form(const std::string _name, int gradeToSign, int gradeToExecute)
+	: _name("Default"), _gradeToSign(0), _gradeToExecute(0),
+		_isSigned(false)
+{
+	_name = ("Default");
+	std::cout << "Default Constructor: Form! " << std::endl;
+}
+
 Form::Form(const std::string &name, int gradeToSign, int gradeToExecute)
-    : _name(name), _isSigned(false),
-      _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
+    : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
 
     if (gradeToSign < 1 || gradeToExecute < 1)
         throw GradeTooHighException();
