@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:57 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/02 16:20:26 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/12 13:19:47 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ class Bureaucrat
 		~Bureaucrat();
 
 		/* ❰ Getters ❱ */
-		const std::string &getName ()const;
+		const std::string &getName() const;
 		int getGrade() const;
 		/* Usage of getName and getGrade from the Subject.*/
 
