@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:38:57 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/12 13:19:47 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/13 15:37:41 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 
 #include <exception>
 #include <iostream>
-#include <stdexcept>
+#include <exception>
 
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string privateName;
+		int privateGrade;
 		/* const before the return type ensures that the data
 			returned cannot be modified through that referance */
 		/* const after the method parantheses makes the methods 

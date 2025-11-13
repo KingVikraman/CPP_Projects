@@ -5,16 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 19:16:55 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:31:08 by rvikrama         ###   ########.fr       */
+/*   Created: 2025/11/13 20:36:33 by rvikrama          #+#    #+#             */
+/*   Updated: 2025/11/13 20:38:38 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Bureaucrat.hpp"
-#include <fstream>
-#include <iostream>
+#include "../includes/AForm.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
 	AForm("Shrubbery Creation Form", 137, 145), _target(target)

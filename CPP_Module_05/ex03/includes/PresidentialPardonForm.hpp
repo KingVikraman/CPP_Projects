@@ -5,27 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/08 19:15:42 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 18:10:12 by rvikrama         ###   ########.fr       */
+/*   Created: 2025/11/13 20:35:35 by rvikrama          #+#    #+#             */
+/*   Updated: 2025/11/13 20:41:31 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
-#include <string>
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-class PresidentialPardonForm : public AForm
-{
-	private:
-		std::string privateTarget;
-
-	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(const std::string target);
-		PresidentialPardonForm(const PresidentialPardonForm& other);
-		~PresidentialPardonForm();
-		
-		void	execute(const Bureaucrat& executor) const;
+class PresidentialPardonForm : public AForm {
+private:
+	std::string	_target;
+public:
+	PresidentialPardonForm(const std::string _target);
+	void	execute(Bureaucrat const & executor) const;
 };

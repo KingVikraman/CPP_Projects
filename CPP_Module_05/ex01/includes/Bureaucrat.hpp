@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:00:04 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/02 22:02:46 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/13 16:16:03 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string privateName;
+		int privateGrade;
 		/* const before the return type ensures that the data
 			returned cannot be modified through that referance */
 		/* const after the method parantheses makes the methods 

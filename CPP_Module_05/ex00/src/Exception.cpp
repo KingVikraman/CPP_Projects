@@ -6,13 +6,13 @@
 
 class Printer {
 private:
-	const std::string _name;
-	int _availablePaper;
+	const std::string privateName;
+	int privateAvailablePaper;
 public:
 	// Printer(std::string name, int paper)
 	// {
-	// 	_name = name;
-	// 	_availablePaper = paper;
+	// 	privateName = name;
+	// 	privateAvailablePaper = paper;
 	// }
 	Printer();
 	Printer(const std::string &name, int paper);
@@ -22,21 +22,17 @@ public:
 };
 
 
-Printer::Printer() : _name("random"), _availablePaper(10)
+Printer::Printer() : privateName("random"), privateAvailablePaper(10)
 {
-	_name = "Unknown";
-	_availablePaper = 10;
-
-	std::cout << "DefaultPrinter " << _name << " has been constructed with "
-	<< _availablePaper << " pages! " << std::endl;
+	std::cout << "DefaultPrinter " << privateName << " has been constructed with "
+	<< privateAvailablePaper << " pages! " << std::endl;
 }
 
-Printer::Printer(const std::string &name, int paper) : _name(name), _availablePaper(paper)
+Printer::Printer(const std::string &name, int paper) : privateName(name), privateAvailablePaper(paper)
 {
-	_name = name;
-	_availablePaper = paper;
-	std::cout << "Printer " << _name << " has been constructed with "
-	<< _availablePaper << " pages!" << std::endl;
+	privateAvailablePaper = paper;
+	std::cout << "Printer " << privateName << " has been constructed with "
+	<< privateAvailablePaper << " pages!" << std::endl;
 }
 
 Printer::~Printer()
@@ -48,13 +44,13 @@ void Printer::Print(const std::string &txtDoc)
 {
 	int requiredPaper = txtDoc.length() / 10;
 
-	if (_availablePaper < requiredPaper)
+	if (privateAvailablePaper < requiredPaper)
 	{
 		throw ("No Paper");
 	}
 	std::cout << "Printing..." << txtDoc << std::endl;
 
-	_availablePaper -= requiredPaper;
+	privateAvailablePaper -= requiredPaper;
 }
 
 int main ()
