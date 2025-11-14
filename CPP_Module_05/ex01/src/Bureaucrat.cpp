@@ -6,11 +6,12 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:03:24 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 16:16:10 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/14 19:39:01 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/Form.hpp"
 
 /* ❰ Default Constructor ❱ */
 Bureaucrat::Bureaucrat() : privateName("Unnamed"), privateGrade(150)
@@ -104,4 +105,18 @@ const char* Bureaucrat::GradeTooHighExeption::what() const throw()
 const char* Bureaucrat::GradeTooLowExeption::what() const throw()
 {
 	return "Grade too Low! ";
+}
+
+void	Bureaucrat::signingForm(Form &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << privateName << " signed " << form.getName() << std::endl;
+	}
+	catch (const Form::GradeTooLowException& Error)
+	{
+		std::cout << privateName << " couldn't sign " << form.getName()
+		<< " because " << Error.what() << std::endl;
+	}
 }

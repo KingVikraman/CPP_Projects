@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/02 22:00:04 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 16:16:03 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/14 19:39:30 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 
 #include <exception>
 #include <iostream>
-#include <stdexcept>
+#include <exception>
+
+
+class Form;
 
 class Bureaucrat
 {
@@ -43,6 +46,7 @@ class Bureaucrat
 		/* ❰ Grade Control❱ */
 		void incrementGrade();
 		void decrementGrade();
+		void signingForm(Form &form);
 
 		/* ❰ Exception Classes ❱ */
 		/* This class within a class is a new implementation called scoped classes.

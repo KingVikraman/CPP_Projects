@@ -6,7 +6,7 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/02 21:59:08 by rvikrama          #+#    #+#              #
-#    Updated: 2025/11/02 21:59:37 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/11/14 15:07:55 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,9 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 INC_DIR = includes
 INC = -I$(INC_DIR)
 
-SRC =	please fill this up......
+SRC =	src/Bureaucrat.cpp \
+		src/Form.cpp \
+		src/main.cpp
 
 OBJ_FOLDER = obj_files
 
@@ -62,15 +64,13 @@ fclean: clean
 	@echo "\033[3;33m║  ⚠️ SYSTEM PURGE INITIATED — FCLEAN MODE ⚠️  ║\033[0m"
 	@echo "\033[3;33m╚════════════════════════════════════════════╝\033[0m"
 	@echo
-	@sleep 0.2
 	@echo "\033[5;1;31m           WARNING!!   \033[0m"
 	@echo
 	@echo "\033[3;31m    THIS ACTION IS IRREVERSABLE... \033[0m"
-	@sleep 5.0
 	@echo "\033[1;36m╔════════════════════════════════════════════╗\033[0m"
 	@echo "\033[1;36m║          CLEANUP SEQUENCE COMPLETE         ║\033[0m"
 	@echo "\033[1;36m╚════════════════════════════════════════════╝\033[0m"
-	rm -f $(NAME)	
+	rm -f $(NAME)
 
 re : fclean all
 
