@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:15:48 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:03:18 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:38:59 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ class ShrubberyCreationForm : public AForm
 
 	public:
 		ShrubberyCreationForm(const std::string target);
-		void	execute(const Bureaucrat& executor) const;
+		void	executeAction(const Bureaucrat& executor) const;
 };

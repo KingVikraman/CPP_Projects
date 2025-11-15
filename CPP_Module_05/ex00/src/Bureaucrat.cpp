@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/24 16:39:12 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 15:38:59 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/14 13:49:04 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,17 @@
 /* ❰ Default Constructor ❱ */
 Bureaucrat::Bureaucrat() : privateName("Unnamed"), privateGrade(150)
 {
-	std::cout
-	<< "Default Bureaucrat created: "
-	<< privateName << std::endl;
+	std::cout << "Default: " << privateName << "," << privateGrade << std::endl;
 }
 
 /* ❰ Param Constructor ❱ */
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : privateName(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade)
+	: privateName(name) , privateGrade(grade)
 {
 	if (grade < 1)
 		throw GradeTooHighExeption();
 	if (grade > 150)
 		throw GradeTooLowExeption();
-	privateGrade = grade;
 	std::cout
 	<< "Bureaucrat has been constructed: "
 	<< privateName << std::endl;

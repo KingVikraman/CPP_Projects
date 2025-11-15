@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:02 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:28:04 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 21:19:11 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ PresidentialPardonForm::~PresidentialPardonForm()
 	
 }
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const
+void PresidentialPardonForm::executeAction(const Bureaucrat& executor) const
 {
 	if (!isSigned())
 		throw AForm::FormNotSignedException();
@@ -45,5 +45,4 @@ void PresidentialPardonForm::execute(const Bureaucrat& executor) const
 		throw AForm::GradeTooLowException();
 	std::cout << privateTarget << " has been pardoned by Zaphod Beeblerox"
 	<< std::endl;
-
 }

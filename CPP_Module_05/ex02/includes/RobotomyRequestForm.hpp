@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotmyRequestForm.hpp                             :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:15:45 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:02:01 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:38:54 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ class RobotomyRequestForm : public AForm
 
 	public:
 		RobotomyRequestForm(const std::string target);
-		void execute(const Bureaucrat& executor) const;
+		void executeAction(const Bureaucrat& executor) const;
 };

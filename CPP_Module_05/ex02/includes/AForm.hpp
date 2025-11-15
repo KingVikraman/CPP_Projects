@@ -6,19 +6,18 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:14:01 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 18:17:45 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 21:20:17 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AFORM_HPP
 #define AFORM_HPP
 
+#include <exception>
 #include <iostream>
 #include <string>
 #include <exception>
 #include "Bureaucrat.hpp"
-
-class Bureaucrat;
 
 class AForm {
 	private:
@@ -41,24 +40,24 @@ class AForm {
 
 		void beSigned(const Bureaucrat& B);
 		void execute(const Bureaucrat &executor) const;
-		virtual void executeAction() const = 0;
+		virtual void executeAction(Bureaucrat const& executor) const = 0;
 
 		class GradeTooHighException : public std::exception
 		{
 			public:
-				const char * what() const throw();
+				virtual const char * what() const throw();
 		};
 
 		class GradeTooLowException : public std::exception
 		{
 			public:
-				const char * what() const throw();
+				virtual const char * what() const throw();
 		};
 
 		class FormNotSignedException : public std::exception
 		{
 			public:
-				const char * what() const throw();
+				virtual const char * what() const throw();
 		};
 
 };

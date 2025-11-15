@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:17:59 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 15:11:47 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:49:51 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,17 @@
 
 #include <exception>
 #include <iostream>
+#include <string>
 #include <exception>
+
+class AForm;
+
 
 class Bureaucrat
 {
 	private:
-		const std::string _name;
-		int _grade;
+		const std::string privateName;
+		int privateGrade;
 		/* const before the return type ensures that the data
 			returned cannot be modified through that referance */
 		/* const after the method parantheses makes the methods 
@@ -36,13 +40,15 @@ class Bureaucrat
 		~Bureaucrat();
 
 		/* ❰ Getters ❱ */
-		const std::string &getName() const;
+		const std::string &getName ()const;
 		int getGrade() const;
 		/* Usage of getName and getGrade from the Subject.*/
 
 		/* ❰ Grade Control❱ */
 		void incrementGrade();
 		void decrementGrade();
+		void signingForm(AForm &form);
+		void executeForm(AForm const &form);
 
 		/* ❰ Exception Classes ❱ */
 		/* This class within a class is a new implementation called scoped classes.
@@ -55,13 +61,13 @@ class Bureaucrat
 		class GradeTooHighExeption : public std::exception
 		{
 			public:
-				const char * what() const throw();
+				virtual const char * what() const throw();
 		};
 
 		class GradeTooLowExeption : public std::exception
 		{
 			public:
-				const char * what() const throw();
+				virtual const char * what() const throw();
 		};
 };
 

@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:15:42 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 18:10:12 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/15 20:49:14 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
 		
-		void	execute(const Bureaucrat& executor) const;
+		void	executeAction(const Bureaucrat& executor) const;
+		//virtual void executeAction() const = 0;
 };
