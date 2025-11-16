@@ -6,14 +6,14 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:15:48 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/15 20:38:59 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/16 22:08:56 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
-#include "../includes/AForm.hpp"
-#include "../includes/Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 class ShrubberyCreationForm : public AForm
 {

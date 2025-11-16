@@ -6,19 +6,19 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:36:33 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:38:38 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/16 22:12:34 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ShrubberyCreationForm.hpp"
 #include "../includes/Bureaucrat.hpp"
-#include "../includes/AForm.hpp"
+#include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) :
-	AForm("Shrubbery Creation Form", 137, 145), _target(target)
+	AForm("Shrubbery Creation Form", 137, 145), privateTarget(target)
 {}
 
-void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const
+void	ShrubberyCreationForm::executeAction(Bureaucrat const & executor) const
 {
 	if (!SigningGetter())
 		throw AForm::FormNotSignedException();

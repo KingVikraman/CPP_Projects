@@ -6,7 +6,7 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/24 16:38:35 by rvikrama          #+#    #+#              #
-#    Updated: 2025/11/14 15:06:04 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/11/16 23:23:02 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,7 +67,7 @@ fclean: clean
 	@echo "\033[5;1;31m           WARNING!!   \033[0m"
 	@echo
 	@echo "\033[3;31m    THIS ACTION IS IRREVERSABLE... \033[0m"
-	@sleep 5.0
+	@sleep 4.0
 	@echo "\033[1;36m╔════════════════════════════════════════════╗\033[0m"
 	@echo "\033[1;36m║          CLEANUP SEQUENCE COMPLETE         ║\033[0m"
 	@echo "\033[1;36m╚════════════════════════════════════════════╝\033[0m"

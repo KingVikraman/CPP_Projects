@@ -6,7 +6,7 @@
 #    By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/11/14 20:31:02 by rvikrama          #+#    #+#              #
-#    Updated: 2025/11/15 21:22:20 by rvikrama         ###   ########.fr        #
+#    Updated: 2025/11/16 23:31:53 by rvikrama         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,9 +67,11 @@ fclean: clean
 	@echo "\033[3;33m║  ⚠️ SYSTEM PURGE INITIATED — FCLEAN MODE ⚠️  ║\033[0m"
 	@echo "\033[3;33m╚════════════════════════════════════════════╝\033[0m"
 	@echo
+	@sleep 0.2
 	@echo "\033[5;1;31m           WARNING!!   \033[0m"
 	@echo
 	@echo "\033[3;31m    THIS ACTION IS IRREVERSABLE... \033[0m"
+	@sleep 4.0
 	@echo "\033[1;36m╔════════════════════════════════════════════╗\033[0m"
 	@echo "\033[1;36m║          CLEANUP SEQUENCE COMPLETE         ║\033[0m"
 	@echo "\033[1;36m╚════════════════════════════════════════════╝\033[0m"

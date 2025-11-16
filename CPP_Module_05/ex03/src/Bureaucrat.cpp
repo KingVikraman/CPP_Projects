@@ -6,50 +6,51 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:36:07 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/13 20:37:49 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/16 22:10:39 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Bureaucrat.hpp"
+#include "../includes/AForm.hpp"
 
 /* ❰ Default Constructor ❱ */
-Bureaucrat::Bureaucrat() : _name("Unnamed"), _grade(150)
+Bureaucrat::Bureaucrat() : privateName("Unnamed"), privateGrade(150)
 {
 	std::cout
 	<< "Default Bureaucrat created: "
-	<< _name << std::endl;
+	<< privateName << std::endl;
 }
 
 /* ❰ Param Constructor ❱ */
-Bureaucrat::Bureaucrat(const std::string &name, int grade) : _name(name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade) : privateName(name)
 {
 	if (grade < 1)
 		throw GradeTooHighExeption();
 	if (grade > 150)
 		throw GradeTooLowExeption();
-	_grade = grade;
+	privateGrade = grade;
 	std::cout
 	<< "Bureaucrat has been constructed: "
-	<< _name << std::endl;
+	<< privateName << std::endl;
 }
 
 /* ❰ Copy Consturctor ❱ */
-Bureaucrat::Bureaucrat(const Bureaucrat &other) : _name(other._name)
-		, _grade(other._grade)
+Bureaucrat::Bureaucrat(const Bureaucrat &other) : privateName(other.privateName)
+		, privateGrade(other.privateGrade)
 {
 	std::cout
 	<< "Bureaucrat has been copied: "
-	<< _name << std::endl;
+	<< privateName << std::endl;
 }
 
 /* ❰ Copy Assingment Operator ❱ */
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
-		this->_grade = other._grade;
+		this->privateGrade = other.privateGrade;
 	std::cout
 	<< "Bureaucrat Assigned: "
-	<< _name << std::endl;
+	<< privateName << std::endl;
 	 return *this;
 }
 
@@ -58,34 +59,34 @@ Bureaucrat::~Bureaucrat()
 {
 	std::cout
 	<< "Bureaucrat Destroyed: "
-	<< _name << std::endl;
+	<< privateName << std::endl;
 }
 
 
 /* ❰ Getters ❱ */
 const std::string &Bureaucrat::getName() const
 {
-	return _name;
+	return privateName;
 }
 
 int Bureaucrat::getGrade() const
 {
-	return _grade;
+	return privateGrade;
 }
 
 /* ❰ Grade Control ❱ */
 void Bureaucrat::incrementGrade()
 {
-	if (_grade <= 1)
+	if (privateGrade <= 1)
 		throw GradeTooHighExeption();
-	_grade--;
+	privateGrade--;
 }
 
 void Bureaucrat::decrementGrade()
 {
-	if (_grade >= 150)
+	if (privateGrade >= 150)
 		throw GradeTooLowExeption();
-	_grade++;
+	privateGrade++;
 }
 
 /* ❰ Operator Overload ❱ */
@@ -104,4 +105,32 @@ const char* Bureaucrat::GradeTooHighExeption::what() const throw()
 const char* Bureaucrat::GradeTooLowExeption::what() const throw()
 {
 	return "Grade too Low! ";
+}
+
+void	Bureaucrat::signingForm(AForm &form)
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << privateName << " signed " << form.getName() << std::endl;
+	}
+	catch (const AForm::GradeTooLowException& Error)
+	{
+		std::cout << privateName << " couldn't sign " << form.getName()
+		<< " because " << Error.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(AForm const & form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << privateName << " executed " << form.getName() << std::endl;
+	}
+	catch (const std::exception& e)
+	{
+		std::cout << privateName << " cannot execute " << form.getName()
+			<< " because " << e.what() << std::endl;
+	}
 }

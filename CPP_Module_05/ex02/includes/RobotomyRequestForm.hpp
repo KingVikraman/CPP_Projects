@@ -6,14 +6,14 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/08 19:15:45 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/11/15 20:38:54 by rvikrama         ###   ########.fr       */
+/*   Updated: 2025/11/16 22:09:05 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
-#include "../includes/AForm.hpp"
-#include "../includes/Bureaucrat.hpp"
+#include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 class RobotomyRequestForm : public AForm
 {
