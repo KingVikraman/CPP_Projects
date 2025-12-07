@@ -8,7 +8,7 @@
 #include <iomanip>
 #include <cmath>
 
-class scaleCoverter
+class SConv
 {
 	private:
 		SConv();

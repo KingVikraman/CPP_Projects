@@ -1,4 +1,5 @@
 #include "../includes/ScalarConverter.hpp"
+#include <ostream>
 
 SConv::SConv()
 {
@@ -16,7 +17,7 @@ SConv &SConv::operator=(const SConv &other)
 	return *this;
 };
 
-SConv::~SConv();
+SConv::~SConv()
 {
 
 };
@@ -25,26 +26,35 @@ void SConv::convert(const std::string &input)
 {
 	if(input.length() == 3 && input[0] == '\'' && input[2] == '\'')
 	{
-		//It;s a Char.
 		char c = input[1];
 		std::cout << "char: '" << c << "'" << std::endl;
-		//TODO : convert the char and print.
+		std::cout << "int: " << static_cast<int>(c) << std::endl;
+		std::cout << "float: " << static_cast<float>(c) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(c) << std::endl;
 	}
 	else if (input[input.length() - 1] == 'f')
 	{
-		// if(input.find('.') != std::string::npos)
-		// {
-
-		// }
+		float f = std::atof(input.c_str());
+		std::cout << "char: '" << static_cast<char>(f) << "'" << std::endl;
+		std::cout << "int: " << static_cast<int>(f) << std::endl;
+		std::cout << "float: " << f << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(f) << std::endl;
 	}
 	else if (input.find('.') != std::string::npos || input == "nan" || input == "+inf" || input == "-inf"
 			|| input == "inf")
 	{
-		// Is it a double?
+	 double d = std::atof(input.c_str());
+	 std::cout << "char: '" << static_cast<char>(d) << "'" << std::endl;
+	 std::cout << "int: " << static_cast<int>(d) << std::endl;
+	 std::cout << "float: " << static_cast<float>(d) << "f" << std::endl;
+	 std::cout << "double: " << d << std::endl;
 	}
 	else
 	{
-		//is it a int?
+		int num = std::atoi(input.c_str());
+		std::cout << "char: '" << static_cast<char>(num) << "'" << std::endl; 
+		std::cout << "int: " << num << std::endl;
+		std::cout << "float: " << static_cast<float>(num) << "f" << std::endl;
+		std::cout << "double: " << static_cast<double>(num) << std::endl;
 	}
-
 }
