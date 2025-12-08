@@ -5,19 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 19:35:48 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/12/08 19:35:50 by rvikrama         ###   ########.fr       */
+/*   Created: 2025/12/08 20:14:52 by rvikrama          #+#    #+#             */
+/*   Updated: 2025/12/08 20:16:18 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConverter.hpp"
+#include "../includes/Base.hpp"
+#include <cstdlib>
+#include <iostream>
 
-int main(int argc, char **argv) {
-    if (argc == 2) {
-        std::string literal(argv[1]);
-        ScalarConverter::convert(literal);
-    }
-    else { std::cout << "Error: invalid number of arguments!\n"; return (1); }
-
-    return (0);
+int main()
+{
+	srand(time(NULL));
+	
+	Base* base = generate();
+	identify(base);
+	identify(*base);
+	delete base;
+	return (0);
 }

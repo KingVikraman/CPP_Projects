@@ -1,23 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Base.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/08 19:35:48 by rvikrama          #+#    #+#             */
-/*   Updated: 2025/12/08 19:35:50 by rvikrama         ###   ########.fr       */
+/*   Created: 2025/12/08 20:15:00 by rvikrama          #+#    #+#             */
+/*   Updated: 2025/12/08 20:15:56 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConverter.hpp"
+#pragma once
 
-int main(int argc, char **argv) {
-    if (argc == 2) {
-        std::string literal(argv[1]);
-        ScalarConverter::convert(literal);
-    }
-    else { std::cout << "Error: invalid number of arguments!\n"; return (1); }
+class Base
+{
+	public:
+		virtual ~Base();
+};
 
-    return (0);
-}
+class A : public Base {};
+
+class B : public Base {};
+
+class C : public Base {};
+
+Base * generate(void);
+void identify(Base* p);
+void identify(Base& p);
