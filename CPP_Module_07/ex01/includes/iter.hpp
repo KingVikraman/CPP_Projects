@@ -6,16 +6,15 @@
 /*   By: raja <raja@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:20:09 by rvikrama          #+#    #+#             */
-/*   Updated: 2026/01/04 22:53:31 by raja             ###   ########.fr       */
+/*   Updated: 2026/01/05 15:36:19 by raja             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ITER_HPP
 #define ITER_HPP
 
-#include <iosteam>
+#include <iostream>
 #include <string>
-
 
 template <typename Type, typename Func>
 void iter(Type *array, size_t length, Func function)
