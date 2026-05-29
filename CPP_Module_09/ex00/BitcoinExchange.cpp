@@ -6,11 +6,12 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 20:18:08 by rvikrama          #+#    #+#             */
-/*   Updated: 2026/05/28 21:47:52 by rvikrama         ###   ########.fr       */
+/*   Updated: 2026/05/29 17:36:44 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
+#include <typeinfo>
 
 BitcoinExchange::BitcoinExchange()
 {
@@ -34,8 +35,58 @@ BitcoinExchange::~BitcoinExchange()
 
 }
 
+static std::string trim(const std::string &s)
+{
+	size_t start = s.find_first_not_of(" \t\r\n");
+	size_t end = s.find_last_not_of(" \t\r\n");
+	if (start == std::string::npos || end == std::string::npos)
+		return "";
+	return s.substr(start, end - start + 1);
+}
+
+void BitcoinExchange::loadDatabase(const std::string &filename)
+{
+	// ── 1. Open file ──────────────────────────────────────────────
+	std::ifstream file(filename.c_str());
+	std::string line;
+
+	if (!file.is_open())
+	{
+		std::cerr << "Error: database file failed to open." << std::endl;
+		return;  // just return, no bool
+	}
+
+	// ── 2. Skip header ────────────────────────────────────────────
+	std::getline(file, line);
+
+	// ── 3. Read each line ─────────────────────────────────────────
+	while (std::getline(file, line))
+	{
+		if (!line.empty() && line[line.size() - 1] == '\r')
+			line.erase(line.size() - 1);
+		// ── 4. Split by comma ─────────────────────────────────────
+		std::string date;
+		std::string rateStr;
+		std::stringstream ss(line);
+		
+		if (!std::getline(ss, date, ',') || !std::getline(ss, rateStr))
+			continue;
+
+		date = trim(date);
+		rateStr = trim(rateStr);
+
+		if (!isValidDate(date))
+			continue;
+		// ── 5. Convert and store ──────────────────────────────────
+		float rate = std::strtod(rateStr.c_str(), NULL);
+		_database[date] = rate;
+	}
+	file.close();
+}
+
 void BitcoinExchange::processInputFile(const std::string &filename)
 {
+	// ── 1. Open file ──────────────────────────────────────────────
 	std::ifstream file(filename.c_str());
 	std::string line;
 	if (!file.is_open())
@@ -43,28 +94,54 @@ void BitcoinExchange::processInputFile(const std::string &filename)
 		std::cerr << "Error: Input file failed to open." << std::endl;
 		return;
 	}
-	
+	// ── 2. Skip header line ───────────────────────────────────────
 	std::getline(file, line);
-
+	// ── 3. Process each line ──────────────────────────────────────
 	while (std::getline(file, line))
 	{
+		// ── 3a. Skip empty lines ──────────────────────────────────
 		if(line.empty())
 			continue;
+
+		if (!line.empty() && line[line.size() -1] == '\r')
+			line.erase(line.size() - 1);
+		// ── 3b. Find pipe separator ───────────────────────────────
 		size_t pipePos = line.find('|');
 		if (pipePos == std::string::npos)
 		{
 			std::cerr << "Error: bad input -> " << line << std::endl;
 			continue;
 		}
-		std::string date = line.substr(0, pipePos - 1);
-		std::string valueStr = line.substr(pipePos + 2);
-		double value;
-		if (!isValidValue(date))
+		// ── 3c. Split into date and value ─────────────────────────
+		std::string date = trim(line.substr(0, pipePos));
+		std::string valueStr = trim(line.substr(pipePos + 1));
+		// ── 3d. Validate date ─────────────────────────────────────
+		if (!isValidDate(date))
 		{
 			std::cerr << "Error: Invalid date -> " << date << std::endl;
 			continue;
 		}
+		// ── 3e. Validate value + parse it ─────────────────────────
+		float value;
+		if (!isValidValue(valueStr, value))
+			continue;
+		// ── 3f. Look up closest rate in database ──────────────────
+		std::map<std::string, float>::const_iterator it = _database.lower_bound(date);
+		if (it == _database.end() || it->first != date)
+		{
+			if(it == _database.begin())
+			{
+				std::cerr << "Error: No available rate for " << date << std::endl;
+				continue;
+			}
+			--it;
+		}
+		// ── 3g. Print result ──────────────────────────────────────
+		float rate = it->second;
+		std::cout << date << " -> " << value << " = " << value * rate << std::endl;
 	}
+	file.close();
+	return;
 }
 
 
@@ -127,7 +204,7 @@ bool BitcoinExchange::isValidDate(const std::string &date) const
 
 // bool BitcoinExchange::isValidValue(const std::string &value) const
 // {
-// 	double number = std::strtod(value.c_str(), NULL);
+// 	float number = std::strtod(value.c_str(), NULL);
 // 	if (number < 0)
 // 	{
 // 		std::cerr << "Error: not a positive number.\n" << std::endl;
@@ -141,10 +218,10 @@ bool BitcoinExchange::isValidDate(const std::string &date) const
 // 	return true;
 // }
 
-bool BitcoinExchange::isValidValue(const std::string &value) const
+bool BitcoinExchange::isValidValue(const std::string &valueStr, float &number) const
 {
-	std::stringstream ss(value);
-	double number;
+	// ── 1. Parse + format check ───────────────────────────────────
+	std::stringstream ss(valueStr);
 	char leftover;
 
 	if(!(ss >> number) || (ss >> leftover))
@@ -152,11 +229,13 @@ bool BitcoinExchange::isValidValue(const std::string &value) const
 		std::cerr << "Error: Invalid number format." << std::endl;
 		return false;
 	}
+	// ── 2. Must be positive ───────────────────────────────────────
 	if (number < 0)
 	{
 		std::cerr << "Error: not a positive number." << std::endl;
 		return false;
 	}
+	// ── 3. Must not exceed 1000 ───────────────────────────────────
 	if (number > 1000)
 	{
 		std::cerr << "Error: too large number." << std::endl;

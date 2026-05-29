@@ -6,7 +6,7 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/23 20:28:49 by rvikrama          #+#    #+#             */
-/*   Updated: 2026/05/28 21:06:50 by rvikrama         ###   ########.fr       */
+/*   Updated: 2026/05/29 15:04:25 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@
 #include <exception>
 #include <sstream>
 #include <fstream>
+#include <cstdlib>
+
 
 class BitcoinExchange
 {
     private:
         std::map<std::string, float> _database;
         bool isValidDate(const std::string &date) const;
-        bool isValidValue(const std::string &value) const;
+        bool isValidValue(const std::string &valueStr, float &number) const;
         float getExchangeRate(const std::string &date);
         
         
