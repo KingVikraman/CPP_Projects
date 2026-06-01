@@ -6,19 +6,18 @@
 /*   By: rvikrama <rvikrama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/29 19:19:40 by rvikrama          #+#    #+#             */
-/*   Updated: 2026/05/29 19:20:08 by rvikrama         ###   ########.fr       */
+/*   Updated: 2026/06/01 17:23:12 by rvikrama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RPN_HPP
-#define RPN_HPP
+#pragma once
 
 #include <iostream>
-#include <string>
-#include <fstream>
-#include <stack>
 #include <sstream>
-#include <cstdlib>
+#include <fstream>
+#include <exception>
+#include <stack>
+
 
 class RPN
 {
@@ -29,8 +28,8 @@ class RPN
 		RPN();
 		RPN(const RPN &other);
 		RPN &operator=(const RPN &other);
+		~RPN();
 
 		int evaluate(const std::string &expression);
 };
 
-#endif
